@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rifa Dos Guri - iPhone 15 Pro Max</title>
+
+<!-- Fonte Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg1:#020617;
+  --bg2:#000;
+  --card:#061024;
+  --stroke:#1e293b;
+  --chip:#0b1220;
+  --muted:#94a3b8;
+
+  --green:#22c55e;
+  --green2:#16a34a;
+
+  --neon:#00f5ff;
+  --pink:#ff4fd8;
+  --yellow:#facc15;
+
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
+
+  /* Tipografia responsiva (mobile ideal) */
+  --fs-base: clamp(14px, 1.2vw, 16px);
+  --fs-small: clamp(12px, 1vw, 13px);
+  --fs-h1: clamp(22px, 4.6vw, 28px);
+  --fs-h3: clamp(15px, 2.6vw, 18px);
+}
+
+body{
+  margin:0;
+  font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(700px 280px at 15% 10%, rgba(255,79,216,.10), transparent 60%),
+    radial-gradient(650px 300px at 85% 12%, rgba(0,245,255,.10), transparent 65%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#fff;
+  padding-bottom:92px;
+  font-size:var(--fs-base);
+
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+@keyframes popIn{
+  from{opacity:0; transform:translateY(10px)}
+  to{opacity:1; transform:translateY(0)}
+}
+.container, header{animation:popIn .35s ease both}
+
+header{
+  position:relative;
+  padding:18px 14px 16px;
+  text-align:center;
+  background:
+    radial-gradient(600px 240px at 20% 0%, rgba(0,245,255,.25), transparent 55%),
+    radial-gradient(650px 260px at 80% 0%, rgba(255,79,216,.22), transparent 60%),
+    linear-gradient(135deg,var(--green2),var(--green));
+  border-bottom-left-radius:22px;
+  border-bottom-right-radius:22px;
+  box-shadow:0 22px 80px rgba(0,0,0,.45);
+}
+
+h1{
+  margin:0 0 2px;
+  font-size:var(--fs-h1);
+  letter-spacing:.15px;
+  font-weight:900;
+  line-height:1.05;
+}
+header p{margin:4px 0;font-size:var(--fs-small); font-weight:600}
+
+/* ✅ TÍTULO (sem imagem mini) */
+.title-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top:6px;
+  text-align:center;
+}
+.title-text{
+  text-align:center;
+  line-height:1.1;
+}
+
+/* Botão 3 barrinhas */
+.admin-btn{
+  position:absolute;
+  top:12px; left:12px;
+  width:48px; height:48px;
+  border-radius:14px;
+  border:none;
+  cursor:pointer;
+  background:rgba(2,6,23,.55);
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.18s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.admin-btn:hover{transform:translateY(-1px) scale(1.02)}
+.admin-btn:active{transform:scale(.98)}
+.admin-btn span{
+  display:block;
+  width:20px; height:2px;
+  background:#fff;
+  border-radius:2px;
+  position:relative;
+}
+.admin-btn span::before,
+.admin-btn span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:20px; height:2px;
+  background:#fff;
+  border-radius:2px;
+}
+.admin-btn span::before{top:-6px}
+.admin-btn span::after{top:6px}
+
+/* ✅ PRÊMIO (sem imagem principal) */
+.prize{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:12px;
+}
+.badge{
+  background:linear-gradient(135deg,#fff1a8,var(--yellow));
+  color:#000;
+  padding:7px 14px;
+  border-radius:999px;
+  font-weight:900;
+  margin-top:10px;
+  box-shadow:0 14px 30px rgba(0,0,0,.35);
+  font-size:var(--fs-small);
+}
+
+/* ÍCONES */
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:10px 0 0;
+}
+.social-icons a{
+  width:44px; height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(2,6,23,.60);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+  transition:.18s ease;
+}
+.social-icons a:hover{
+  transform:translateY(-2px) scale(1.06);
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),
+             0 0 20px rgba(0,245,255,.30),
+             0 0 18px rgba(255,79,216,.22);
+}
+.social-icons img{width:22px;height:22px}
+
+.container{max-width:1200px;margin:0 auto;padding:12px}
+
+/* Layout */
+.purchase-layout{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:12px;
+}
+@media(min-width:980px){
+  .purchase-layout{grid-template-columns:1.25fr .75fr; align-items:start}
+}
+
+/* Cards */
+.card{
+  position:relative;
+  background:
+    radial-gradient(700px 220px at 10% 0%, rgba(0,245,255,.10), transparent 55%),
+    radial-gradient(650px 220px at 90% 0%, rgba(255,79,216,.10), transparent 55%),
+    linear-gradient(180deg, rgba(6,16,36,.96), rgba(2,6,23,.96));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  padding:14px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+  overflow:hidden;
+  transition:.20s ease;
+}
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(90deg, rgba(0,245,255,.0), rgba(0,245,255,.15), rgba(255,79,216,.10), rgba(0,245,255,.0));
+  opacity:0;
+  transition:.20s ease;
+  pointer-events:none;
+}
+@media(hover:hover){
+  .card:hover{transform:translateY(-2px)}
+  .card:hover::after{opacity:1}
+}
+.card h3{
+  margin:0 0 10px;
+  color:#c7ffde;
+  letter-spacing:.2px;
+  font-weight:800;
+  font-size:var(--fs-h3);
+}
+
+/* Inputs/Buttons */
+input,textarea,button{
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border-radius:14px;
+  border:none;
+  font-size:var(--fs-base);
+  font-family:inherit;
+}
+input,textarea{
+  background:rgba(11,18,32,.9);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.10);
+  outline:none;
+  transition:.18s ease;
+}
+input:focus,textarea:focus{
+  border-color:rgba(0,245,255,.35);
+  box-shadow:0 0 0 3px rgba(0,245,255,.10);
+}
+textarea{min-height:70px}
+
+button{
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  font-weight:900;
+  cursor:pointer;
+  color:#000;
+  letter-spacing:.2px;
+  transition:.18s ease;
+  box-shadow:0 16px 30px rgba(0,0,0,.30);
+}
+button:hover{transform:translateY(-1px); filter:saturate(1.06)}
+button:active{transform:scale(.99)}
+
+.small{font-size:var(--fs-small);opacity:.86;margin:6px 0 0}
+.aviso{font-size:var(--fs-small);color:var(--yellow)}
+
+.row-buttons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+@media(min-width:520px){
+  .row-buttons{grid-template-columns:repeat(3,1fr)}
+}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{
+  background:rgba(11,18,32,.85);
+  border:1px solid rgba(255,255,255,.10);
+  color:#fff;
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:var(--fs-small);
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+
+/* GRID paginado */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(44px,1fr));
+  gap:6px;
+  padding:10px;
+  background:rgba(2,6,23,.70);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+}
+.numero{
+  padding:8px 0;
+  border-radius:10px;
+  text-align:center;
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer;
+  user-select:none;
+  transform:translateZ(0);
+  transition:.14s ease;
+  box-shadow:0 8px 16px rgba(0,0,0,.25);
+}
+.disponivel{background:rgba(30,41,59,.95)}
+.selecionado{
+  outline:2px solid rgba(34,197,94,.9);
+  box-shadow:0 0 0 1px rgba(34,197,94,.25),
+             0 0 18px rgba(34,197,94,.35);
+}
+.reservado{background:linear-gradient(135deg,#fff1a8,var(--yellow));color:#000}
+.pago{background:linear-gradient(135deg,#2cff8a,var(--green2)); color:#000}
+
+/* Pagamento sticky + scroll */
+.pay-sticky{position:static;}
+@media(min-width:980px){
+  .pay-sticky{
+    position:sticky;
+    top:12px;
+    max-height:calc(100vh - 24px);
+    overflow:auto;
+    padding-right:6px;
+  }
+  .pay-sticky::-webkit-scrollbar{width:8px}
+  .pay-sticky::-webkit-scrollbar-thumb{background:#1e293b;border-radius:10px}
+}
+
+/* PIX */
+.pix-box{display:flex;flex-direction:column;align-items:center;gap:10px}
+.pix-box img{
+  width:240px;
+  max-width:100%;
+  background:#fff;
+  padding:10px;
+  border-radius:14px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.12), 0 18px 60px rgba(0,0,0,.45);
+  transition:.18s ease;
+}
+.pix-glow{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.12),
+    0 0 28px rgba(0,245,255,.25),
+    0 0 28px rgba(255,79,216,.18),
+    0 18px 60px rgba(0,0,0,.45) !important;
+}
+.pix-line{
+  background:rgba(11,18,32,.85);
+  border:1px solid rgba(255,255,255,.10);
+  padding:10px 12px;
+  border-radius:14px;
+  width:100%;
+  word-break:break-all;
+  font-size:var(--fs-small);
+}
+.pix-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  width:100%;
+}
+@media(min-width:520px){
+  .pix-actions{grid-template-columns:1fr 1fr}
+}
+
+/* Barra fixa app */
+.appbar{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  background:rgba(2,6,23,.92);
+  border-top:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+  padding:10px 12px;
+  z-index:80;
+}
+.appbar-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+}
+.appbar-info{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:160px;
+}
+.appbar-info .muted{color:var(--muted);font-size:var(--fs-small)}
+.appbar-info .big{font-size:clamp(14px, 2.2vw, 16px);font-weight:900}
+.appbar-actions{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:8px;
+  width:min(540px, 60%);
+}
+@media(max-width:520px){
+  .appbar-actions{width:55%}
+}
+.btn-secondary{
+  background:rgba(11,18,32,.90) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.10);
+}
+.btn-yellow{
+  background:linear-gradient(135deg,#facc15,#f59e0b) !important;
+  color:#000 !important;
+  position:relative;
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 rgba(0,0,0,0)}
+  50%{box-shadow:0 0 18px rgba(250,204,21,.32)}
+}
+.btn-yellow{animation:pulseGlow 1.9s ease-in-out infinite}
+
+/* Modal */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  z-index:90;
+}
+.modal{
+  position:fixed;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  width:min(560px, 92vw);
+  max-height:70vh;
+  overflow:auto;
+  background:rgba(6,16,36,.98);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  padding:14px;
+  display:none;
+  z-index:100;
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+}
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.modal-header h3{margin:0;color:#c7ffde}
+.close-mini{
+  width:42px;height:42px;
+  border-radius:14px;
+  background:rgba(11,18,32,.90);
+  border:1px solid rgba(255,255,255,.10);
+  color:#fff;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.close-mini:hover{transform:translateY(-1px)}
+.list{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{
+  background:rgba(11,18,32,.90);
+  border:1px solid rgba(255,255,255,.10);
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:var(--fs-small);
+  box-shadow:0 12px 24px rgba(0,0,0,.25);
+}
+.pill button{
+  margin-left:8px;
+  width:auto;
+  padding:4px 8px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  background:rgba(34,197,94,.15);
+  color:#fff;
+}
+
+/* Drawer admin */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  z-index:50;
+}
+.drawer{
+  position:fixed;
+  top:0; left:0;
+  height:100%;
+  width:min(420px, 92vw);
+  background:rgba(6,16,36,.98);
+  border-right:1px solid rgba(255,255,255,.10);
+  transform:translateX(-110%);
+  transition:transform .25s ease;
+  z-index:60;
+  display:flex;
+  flex-direction:column;
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+}
+.drawer.open{transform:translateX(0)}
+.overlay.open{display:block}
+.drawer-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px;border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(30,41,59,.20);
+}
+.drawer-header h3{margin:0;color:#c7ffde;font-size:16px}
+.drawer-body{padding:14px;overflow:auto}
+.hidden{display:none}
+
+/* Admin table */
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+th,td{border-bottom:1px solid rgba(255,255,255,.08);padding:6px}
+.confirmar{
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  border:none;padding:6px 10px;border-radius:10px;cursor:pointer;
+  color:#000;font-weight:900;
+}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.cardstat{
+  background:rgba(11,18,32,.85);
+  border:1px solid rgba(255,255,255,.08);
+  padding:10px;border-radius:12px;flex:1;text-align:center;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+}
+
+/* ====== PROGRESSO + TICKER ====== */
+.progress-top{margin-top:12px}
+.progress-wrap{display:flex;flex-direction:column;gap:10px}
+
+.progress-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.progress-metric{
+  font-size:var(--fs-small);
+  color:rgba(255,255,255,.92);
+}
+.progress-metric b{color:#fff}
+
+.progress-bar{
+  position:relative;
+  height:14px;
+  border-radius:999px;
+  background:rgba(11,18,32,.85);
+  border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+}
+.progress-fill{
+  position:absolute;
+  top:0; left:0; bottom:0;
+  width:0%;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(0,245,255,.9), rgba(255,79,216,.75), rgba(34,197,94,.9));
+  transition:width .55s ease;
+}
+@keyframes shimmer{
+  from{transform:translateX(-40%)}
+  to{transform:translateX(140%)}
+}
+.progress-fill::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+  width:40%;
+  animation:shimmer 1.6s linear infinite;
+}
+
+.ticker{
+  position:relative;
+  overflow:hidden;
+  border-radius:14px;
+  background:rgba(11,18,32,.85);
+  border:1px solid rgba(255,255,255,.10);
+  padding:10px;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+}
+.ticker-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+.ticker-title b{color:#fff}
+.ticker-track{overflow:hidden;white-space:nowrap}
+.ticker-move{
+  display:inline-block;
+  padding-left:100%;
+  animation:tickerMove 18s linear infinite;
+}
+@keyframes tickerMove{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
+}
+.ticker-item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-right:16px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(2,6,23,.45);
+  box-shadow:0 10px 20px rgba(0,0,0,.18);
+  font-size:var(--fs-small);
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(34,197,94,.95);
+  box-shadow:0 0 12px rgba(34,197,94,.55);
+}
+.dot.yellow{
+  background:rgba(250,204,21,.95);
+  box-shadow:0 0 12px rgba(250,204,21,.45);
+}
+</style>
+</head>
+
+<body>
+<header>
+  <button class="admin-btn" onclick="abrirAdmin()" aria-label="Abrir Admin">
+    <span></span>
+  </button>
+
+  <div class="title-row">
+    <div class="title-text">
+      <h1>🎉 Rifa Dos Guri</h1>
+      <p style="margin:2px 0 0">📱 iPhone 15 Pro Max</p>
+    </div>
+  </div>
+
+  <p>🎟 30.000 números • 💰 R$ 0,50 cada</p>
+
+  <div class="prize">
+    <div class="badge">🏆 PRÊMIO PRINCIPAL</div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/rifas_dos_gurii?igsh=MWswdmtvNHFoMjkzOA%3D%3D&utm_source=qr" target="_blank" rel="noopener">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/share/1E8PQnAJuu/?mibextid=wwXIfr" target="_blank" rel="noopener">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+    </a>
+    <a href="https://wa.me/5551999868666" target="_blank" rel="noopener">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
+  </div>
+
+  <p style="margin:6px 0 0"><b>Fale Conosco</b></p>
+</header>
+
+<div class="container">
+  <div class="card progress-top">
+    <h3>🔥 Andamento da rifa</h3>
+
+    <div class="progress-wrap">
+      <div class="progress-head">
+        <div class="progress-metric">🎟 Vendidos/Reservados: <b id="soldCount">0</b> / <b id="soldTotal">30000</b></div>
+        <div class="progress-metric">📊 Progresso: <b id="soldPercent">0.00%</b></div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="ticker">
+        <div class="ticker-title">
+          <b>⚡ Últimas compras</b>
+          <span class="small" style="margin:0; opacity:.85">atualiza automaticamente</span>
+        </div>
+
+        <div class="ticker-track">
+          <div class="ticker-move" id="tickerMove">
+            <span class="ticker-item"><span class="dot yellow"></span> Aguardando primeiras compras…</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="purchase-layout">
+    <div>
+      <div class="card">
+        <h3>🔢 Escolher números</h3>
+
+        <div class="chips">
+          <div class="chip">Página: <b id="pageLabel">1</b></div>
+          <div class="chip">Mostrando: <b id="rangeLabel">1–500</b></div>
+          <div class="chip">Selecionados: <b id="selLabel">0</b></div>
+        </div>
+
+        <input id="gotoNumber" type="number" placeholder="Ir para número (ex: 15234)">
+        <div class="row-buttons">
+          <button class="btn-secondary" onclick="paginaAnterior()">⬅️ Anterior</button>
+          <button class="btn-secondary" onclick="proximaPagina()">➡️ Próximo</button>
+          <button onclick="irParaNumero()">Ir</button>
+        </div>
+
+        <p class="small">No Android fica leve porque mostra só 500 números por vez.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎯 Seleção manual</h3>
+        <textarea id="listaNumeros" placeholder="Ex: 12, 45, 300"></textarea>
+        <div class="aviso">Separe por vírgula ou espaço</div>
+        <button onclick="selecionarManual()">Selecionar números</button>
+      </div>
+
+      <div class="card">
+        <h3>🎲 Comprar números aleatórios</h3>
+        <div class="row-buttons">
+          <button onclick="comprarAleatorio(10)">+10</button>
+          <button onclick="comprarAleatorio(20)">+20</button>
+          <button onclick="comprarAleatorio(30)">+30</button>
+          <button onclick="comprarAleatorio(100)">+100</button>
+          <button onclick="comprarAleatorio(1000)">+1.000</button>
+        </div>
+        <p class="small">Você pode misturar manual + aleatório antes de pagar.</p>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <div class="pay-sticky">
+      <div class="card">
+        <h3>💳 Pagamento via PIX</h3>
+        <div class="pix-box">
+          <img id="qrPix" alt="QR Code PIX">
+
+          <div class="pix-line">
+            <b>PIX Copia e Cola (oficial):</b><br>
+            <span id="pixPayloadText">Selecione números para gerar…</span>
+          </div>
+
+          <div class="pix-actions">
+            <button onclick="copiarPixCopiaCola()">📋 Copiar PIX Copia e Cola</button>
+            <button class="btn-secondary" onclick="gerarPix()">⚡ Gerar PIX (PagBank)</button>
+          </div>
+
+          <p class="aviso" id="pixHint">Selecione números e gere o PIX.</p>
+          <p class="small">Pagamento automático: após pagar, o status vira <b>PAGO</b> sozinho.</p>
+        </div>
+      </div>
+
+      <div class="card" id="cardCadastro">
+        <h3>📝 Dados do comprador</h3>
+        <input id="nome" placeholder="Nome completo">
+        <input id="telefone" placeholder="Telefone / WhatsApp">
+        <button class="btn-yellow" onclick="gerarPix()">Gerar PIX e Reservar</button>
+        <p class="small">Depois de gerar, pague pelo QR/PIX. Assim que o PagBank confirmar, seus números viram PAGO automaticamente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="appbar" role="region" aria-label="Barra de ações">
+  <div class="appbar-inner">
+    <div class="appbar-info">
+      <div class="muted">Selecionados: <span id="barSel">0</span></div>
+      <div class="big">Total: R$ <span id="barTotal">0,00</span></div>
+    </div>
+
+    <div class="appbar-actions">
+      <button class="btn-secondary" onclick="abrirModalSelecionados()">Ver</button>
+      <button class="btn-yellow" onclick="scrollParaPagamento()">Pagar</button>
+      <button class="btn-secondary" onclick="limparSelecao()">Limpar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="fecharModalSelecionados()"></div>
+<div class="modal" id="modalSel">
+  <div class="modal-header">
+    <h3>🎟 Meus números selecionados</h3>
+    <button class="close-mini" onclick="fecharModalSelecionados()">✕</button>
+  </div>
+  <p class="small" id="modalHint">Nenhum número selecionado.</p>
+  <div class="list" id="selList"></div>
+</div>
+
+<div class="overlay" id="overlay" onclick="fecharAdmin()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <h3>🔐 Administração</h3>
+    <button class="close-mini" onclick="fecharAdmin()">✕</button>
+  </div>
+
+  <div class="drawer-body">
+    <div id="adminLoginBox">
+      <p class="small">Somente administrador.</p>
+      <input id="senhaAdmin" placeholder="Senha do admin">
+      <button onclick="loginAdmin()">Entrar</button>
+    </div>
+
+    <div class="hidden" id="adminPanel">
+      <h2 style="margin:8px 0 10px">📊 Painel</h2>
+
+      <div class="stats">
+        <div class="cardstat" id="statVendidos"></div>
+        <div class="cardstat" id="statValor"></div>
+        <div class="cardstat" id="statPercentual"></div>
+      </div>
+
+      <input id="busca" placeholder="🔍 Buscar por nome, telefone, número ou referência" onkeyup="atualizarAdmin(true)">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Números</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+
+      <button class="btn-yellow" style="margin-top:10px" onclick="logoutAdmin()">Sair</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL = 30000;
+const VALOR = 0.50;
+const PAGE_SIZE = 500;
+
+// Troque depois pela sua API do Render: https://SUA-API.onrender.com
+const API_BASE = "https://SEU-DOMINIO-API.com";
+const ADMIN_SENHA="070420";
+
+let paginaAtual = 0;
+let selecionados = [];
+let serverMap = new Map();
+
+const grid = document.getElementById("grid");
+
+function pad5(n){ return String(n).padStart(5,"0"); }
+function moneyBR(v){ return Number(v).toFixed(2).replace(".",","); }
+function firstName(nome){
+  const parts = String(nome||"").trim().split(/\s+/);
+  return parts[0] || "Cliente";
+}
+function assertApiBase(){
+  if(!API_BASE || API_BASE.includes("SEU-DOMINIO-API.com")){
+    alert("⚠️ Falta configurar a URL da API (API_BASE) no index.html. Cole a URL da sua API do Render.");
+    throw new Error("API_BASE não configurado");
+  }
+}
+
+async function apiGet(path){
+  assertApiBase();
+  const res = await fetch(API_BASE + path);
+  const txt = await res.text();
+  let json = null;
+  try { json = JSON.parse(txt); } catch { json = null; }
+  if(!res.ok) throw new Error((json && json.error) ? json.error : txt);
+  return json;
+}
+async function apiPost(path, body){
+  assertApiBase();
+  const res = await fetch(API_BASE + path, {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify(body)
+  });
+  const txt = await res.text();
+  let json = null;
+  try { json = JSON.parse(txt); } catch { json = null; }
+  if(!res.ok) throw new Error((json && json.error) ? json.error : txt);
+  return json;
+}
+
+async function carregarNumerosServidor(){
+  const r = await apiGet("/numbers");
+  serverMap = new Map();
+  (r.items || []).forEach(it=>{
+    serverMap.set(Number(it.numero), it);
+  });
+}
+
+function getSoldCount(){ return serverMap.size; }
+
+function atualizarPublico(){
+  const vendidos = getSoldCount();
+  const perc = (vendidos / TOTAL * 100);
+
+  document.getElementById("soldCount").textContent = vendidos;
+  document.getElementById("soldTotal").textContent = TOTAL;
+  document.getElementById("soldPercent").textContent = perc.toFixed(2) + "%";
+  document.getElementById("progressFill").style.width = Math.min(100, perc).toFixed(2) + "%";
+
+  const ticker = document.getElementById("tickerMove");
+  const list = Array.from(serverMap.values()).slice(0, 10);
+
+  if(!list.length){
+    ticker.innerHTML = `<span class="ticker-item"><span class="dot yellow"></span> Aguardando primeiras compras…</span>`;
+    return;
+  }
+
+  const html = list.map(it=>{
+    const paid = String(it.status||"").toLowerCase() === "pago";
+    const dotClass = paid ? "dot" : "dot yellow";
+    const statusTxt = paid ? "PAGO" : "RESERVADO";
+    return `<span class="ticker-item"><span class="${dotClass}"></span> ${firstName(it.nome)} • ${statusTxt} • nº ${pad5(it.numero)}</span>`;
+  }).join("");
+
+  ticker.innerHTML = html + html;
+}
+
+function atualizarBarra(){
+  document.getElementById("barSel").textContent = selecionados.length;
+  document.getElementById("selLabel").textContent = selecionados.length;
+  document.getElementById("barTotal").textContent = moneyBR(selecionados.length * VALOR);
+}
+
+function atualizarPixUI(){
+  const qr = document.getElementById("qrPix");
+  const payloadText = document.getElementById("pixPayloadText");
+  const hint = document.getElementById("pixHint");
+
+  if(!selecionados.length){
+    qr.src = "";
+    qr.classList.remove("pix-glow");
+    payloadText.textContent = "Selecione números para gerar…";
+    hint.textContent = "Selecione números e gere o PIX.";
+    return;
+  }
+  hint.textContent = `Pronto para gerar: R$ ${(selecionados.length * VALOR).toFixed(2)}`;
+}
+
+function render(){
+  grid.innerHTML = "";
+
+  const inicio = paginaAtual * PAGE_SIZE + 1;
+  const fim = Math.min(inicio + PAGE_SIZE - 1, TOTAL);
+
+  document.getElementById("pageLabel").textContent = (paginaAtual + 1);
+  document.getElementById("rangeLabel").textContent = `${inicio}–${fim}`;
+
+  for(let i=inicio; i<=fim; i++){
+    const s = serverMap.get(i);
+    const status = s ? (String(s.status).toLowerCase()==="pago" ? "pago" : "reservado") : "disponivel";
+
+    const d = document.createElement("div");
+    d.className = `numero ${status}`;
+    d.textContent = pad5(i);
+
+    if(selecionados.includes(i)) d.classList.add("selecionado");
+
+    d.onclick = ()=>{
+      if(serverMap.get(i)) return;
+      if(selecionados.includes(i)) selecionados = selecionados.filter(x=>x!==i);
+      else selecionados.push(i);
+      render();
+    };
+
+    grid.appendChild(d);
+  }
+
+  atualizarPixUI();
+  atualizarBarra();
+  atualizarPublico();
+}
+
+function proximaPagina(){
+  if((paginaAtual + 1) * PAGE_SIZE >= TOTAL) return;
+  paginaAtual++;
+  render();
+}
+function paginaAnterior(){
+  if(paginaAtual === 0) return;
+  paginaAtual--;
+  render();
+}
+function irParaNumero(){
+  const n = parseInt(document.getElementById("gotoNumber").value,10);
+  if(!n || n<1 || n>TOTAL) return alert("Número inválido.");
+  paginaAtual = Math.floor((n-1)/PAGE_SIZE);
+  render();
+  setTimeout(()=>{
+    const el = [...document.querySelectorAll(".numero")]
+      .find(div => div.textContent === pad5(n));
+    if(el) el.scrollIntoView({behavior:"smooth", block:"center"});
+  }, 50);
+}
+
+function selecionarManual(){
+  const texto=document.getElementById("listaNumeros").value;
+  const nums=[...new Set(texto.match(/\d+/g)?.map(n=>parseInt(n,10))||[])];
+
+  let added=0, blocked=0, invalid=0;
+  nums.forEach(n=>{
+    if(!(n>=1 && n<=TOTAL)){ invalid++; return; }
+    if(serverMap.get(n)){ blocked++; return; }
+    if(!selecionados.includes(n)){ selecionados.push(n); added++; }
+  });
+
+  if(nums.length){
+    alert(`Adicionados: ${added}\nIndisponíveis: ${blocked}\nInválidos: ${invalid}`);
+  }
+  render();
+}
+
+function comprarAleatorio(qtd){
+  const livres=[];
+  for(let i=1;i<=TOTAL;i++){
+    if(!serverMap.get(i) && !selecionados.includes(i)) livres.push(i);
+  }
+  if(qtd>livres.length) return alert("Números insuficientes disponíveis.");
+  livres.sort(()=>0.5 - Math.random());
+  selecionados = [...new Set([...selecionados, ...livres.slice(0,qtd)])];
+  render();
+}
+
+function abrirModalSelecionados(){
+  document.getElementById("modalOverlay").style.display="block";
+  document.getElementById("modalSel").style.display="block";
+  renderSelecionadosModal();
+}
+function fecharModalSelecionados(){
+  document.getElementById("modalOverlay").style.display="none";
+  document.getElementById("modalSel").style.display="none";
+}
+function renderSelecionadosModal(){
+  const list = document.getElementById("selList");
+  const hint = document.getElementById("modalHint");
+  list.innerHTML = "";
+
+  if(!selecionados.length){
+    hint.textContent = "Nenhum número selecionado.";
+    return;
+  }
+  hint.textContent = `Você selecionou ${selecionados.length} número(s).`;
+
+  const sorted = [...selecionados].sort((a,b)=>a-b);
+  sorted.forEach(n=>{
+    const pill = document.createElement("div");
+    pill.className="pill";
+    pill.textContent = pad5(n);
+
+    const btn = document.createElement("button");
+    btn.textContent="Remover";
+    btn.onclick=()=>{
+      selecionados = selecionados.filter(x=>x!==n);
+      render();
+      renderSelecionadosModal();
+    };
+    pill.appendChild(btn);
+    list.appendChild(pill);
+  });
+}
+
+function limparSelecao(){
+  if(!selecionados.length) return;
+  if(!confirm("Deseja limpar sua seleção?")) return;
+  selecionados = [];
+  render();
+}
+
+function scrollParaPagamento(){
+  const pay = document.querySelector(".pay-sticky");
+  pay.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+async function gerarPix(){
+  const nome = document.getElementById("nome").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  if(!nome || !telefone || !selecionados.length){
+    return alert("Preencha nome/telefone e selecione números.");
+  }
+
+  try{
+    const r = await apiPost("/checkout/pix", { nome, telefone, numeros: selecionados });
+
+    const qr = document.getElementById("qrPix");
+    const payloadText = document.getElementById("pixPayloadText");
+    const hint = document.getElementById("pixHint");
+
+    payloadText.textContent = (r.copiaECola || "").trim() || "PIX gerado.";
+    if(r.qrImageUrl){
+      qr.src = r.qrImageUrl;
+      qr.classList.add("pix-glow");
+    }
+    hint.textContent = `PIX gerado: R$ ${Number(r.valorReais).toFixed(2)} • validade: 1h`;
+
+    selecionados = [];
+    await carregarNumerosServidor();
+    render();
+
+    alert("PIX gerado! Depois que pagar, o PagBank vai confirmar e os números viram PAGO automaticamente.");
+  }catch(e){
+    alert("Erro ao gerar PIX: " + e.message);
+  }
+}
+
+function copiarPixCopiaCola(){
+  const txt = document.getElementById("pixPayloadText").textContent;
+  if(!txt || txt.startsWith("Selecione")) return alert("Gere o PIX primeiro.");
+  navigator.clipboard.writeText(txt);
+  alert("PIX Copia e Cola copiado!");
+}
+
+function abrirAdmin(){
+  document.getElementById("overlay").classList.add("open");
+  document.getElementById("drawer").classList.add("open");
+}
+function fecharAdmin(){
+  document.getElementById("overlay").classList.remove("open");
+  document.getElementById("drawer").classList.remove("open");
+}
+
+let adminLogged = false;
+let adminCache = [];
+
+function loginAdmin(){
+  const senha = document.getElementById("senhaAdmin").value;
+  if(senha !== ADMIN_SENHA) return alert("Senha incorreta");
+
+  adminLogged = true;
+  document.getElementById("adminLoginBox").classList.add("hidden");
+  document.getElementById("adminPanel").classList.remove("hidden");
+  atualizarAdmin(true);
+}
+function logoutAdmin(){
+  adminLogged = false;
+  document.getElementById("senhaAdmin").value="";
+  document.getElementById("adminPanel").classList.add("hidden");
+  document.getElementById("adminLoginBox").classList.remove("hidden");
+}
+
+async function confirmarPagamento(purchaseId){
+  if(!confirm("Confirmar pagamento manualmente?")) return;
+  try{
+    await apiPost("/admin/confirm", { purchaseId });
+    await atualizarAdmin(true);
+    await carregarNumerosServidor();
+    render();
+  }catch(e){
+    alert("Erro ao confirmar: " + e.message);
+  }
+}
+
+async function atualizarAdmin(force=false){
+  if(!adminLogged) return;
+  const termo = (document.getElementById("busca").value||"").toLowerCase();
+
+  if(force || !adminCache.length){
+    try{
+      const r = await apiGet("/admin/purchases?q=" + encodeURIComponent(termo));
+      adminCache = r.items || [];
+    }catch(e){
+      return alert("Erro no admin: " + e.message);
+    }
+  }
+
+  let vendidos = 0;
+  let total = 0;
+
+  const tbody = document.getElementById("tabela");
+  tbody.innerHTML = "";
+
+  const list = adminCache.filter(p=>{
+    if(!termo) return true;
+    const blob = `${p.nome} ${p.telefone} ${(p.numeros||[]).join(" ")} ${p.reference_id}`.toLowerCase();
+    return blob.includes(termo);
+  });
+
+  list.forEach(p=>{
+    vendidos += (p.numeros||[]).length;
+    if(String(p.status).toLowerCase()==="pago") total += Number(p.valor_reais||0);
+
+    const nums = (p.numeros||[]).map(n=>pad5(n)).join(", ");
+    const valor = Number(p.valor_reais||0).toFixed(2).replace(".",",");
+
+    tbody.innerHTML += `
+      <tr>
+        <td>${p.nome}</td>
+        <td>${p.telefone}</td>
+        <td>${nums}<div class="small" style="opacity:.75">Ref: ${p.reference_id || ""}</div></td>
+        <td>R$ ${valor}</td>
+        <td>${p.status}</td>
+        <td>${String(p.status).toLowerCase()==="reservado"
+          ? `<button class="confirmar" onclick="confirmarPagamento(${p.id})">Confirmar</button>`
+          : "✔"}</td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("statVendidos").textContent = `🎟 Vendidos/Reservados: ${vendidos}`;
+  document.getElementById("statValor").textContent = `💰 Arrecadado: R$ ${total.toFixed(2).replace(".",",")}`;
+  document.getElementById("statPercentual").textContent = `📊 ${(vendidos/TOTAL*100).toFixed(2)}%`;
+}
+
+(async function init(){
+  try{
+    await carregarNumerosServidor();
+    render();
+
+    setInterval(async ()=>{
+      try{
+        await carregarNumerosServidor();
+        atualizarPublico();
+        if(adminLogged) atualizarAdmin(true);
+      }catch{}
+    }, 8000);
+  }catch(e){
+    console.warn(e);
+  }
+})();
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape"){
+    fecharAdmin();
+    fecharModalSelecionados();
+  }
+});
+</script>
+
+</body>
+</html>
